@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Muppet Murder Mystery</title>
+    <link rel="stylesheet" href="muppet_murder.css">
+  </head>
+  <body>
+    <div id="boardSize">
+    </div>
+    <!-- <p id="gameBoard"></p> -->
+    <form id="form" action="index.html" method="post">
+      <label for="letterInput">Type Letter Here</label>
+      <input id="playerInput" type="text" name="letterInput" required pattern[A-z] maxlength="1">
+      <button  id="submit"type="button">Submit</button>
+    </form>
+    <p id="gameInstructions">Welcome to Muppet Murder Mystery.</p>
+    <button id="start"type="button">Start Game</button>
+    <p id="wrong_letters"></p>
+  <script type="text/javascript" src="muppet_murder.js">
+
+  </script>
+  </body>
+</html>
