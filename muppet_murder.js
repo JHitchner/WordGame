@@ -4,21 +4,30 @@ var index= 0;
 var currentGame =murderMuppets[index];
 var label =document.getElementById('label')
 var myBoard = document.getElementById('boardSize');
-var body =document.getElementsByTagName('body');
+// var body =document.getElementsByTagName('body');
 var gonzo =document.getElementById('one')
 var kermit =document.getElementById('two')
 var fozzie =document.getElementById('three')
 var formSub =document.getElementById('form');
 var input =document.getElementById('playerInput');
-var submitBtn =document.getElementById('submit');
+var wrongX =document.getElementById('wrongX')
+// var submitBtn =document.getElementById('submit');
+var clueBtnOne =document.getElementById('clueBtn');
+var clues =document.querySelectorAll('.clues');
+var cluesDiv =document.getElementById('cluesDiv');
 var startBtn =document.getElementById('start');
 var storyModal =document.getElementById('story')
+var winModal =document.getElementById('winModal')
+var loseModal =document.getElementById('loseModal')
+var nextGame =document.getElementById('nextGame')
 var winCounter =[];
-var loseCounter =[];
+var loseCounter =[]
+var currentClue = clues[index];
 
 
 function createBoard(word) {
   currentGame = murderMuppets[word];
+  currentClue = clues[word]
   for( var i = 0; i < currentGame.length; i++) {
     boardSize = document.createElement('div');
     boardSize.className = 'board';
@@ -27,20 +36,19 @@ function createBoard(word) {
     input.style.display = 'block'
     label.style.display = 'block'
   }
+  // cluesDiv.innerHTML = currentClue;
 }
   function checkInput(input) {
     for(var i = 0; i < currentGame.length; i++) {
       if(currentGame.charAt(i) == input) {
-        document.getElementsByClassName('board')[i].innerHTML= input;
+        document.getElementsByClassName('board')[i].innerHTML=input;
         winCounter.push(1);
         winState(winCounter);
       }
     }
   if(currentGame.includes(input) == false) {
     console.log(input);
-    var wrongLetters = [];
-    wrongLetters.push(input);
-    console.log(wrongLetters);
+    wrongX.style.display = 'block'
     console.log("letter not found");
     loseCounter.push(1);
     loseState(loseCounter);
@@ -48,33 +56,25 @@ function createBoard(word) {
 }
 function winState(winCounter) {
   if(winCounter.length == currentGame.length){
+    var gameNext = window.setTimeout(nextGamePopUp, 500);
     console.log("You have solved the mystery!");
-    newGame();
   }
 }
-// function reveal() {
-//   if (currentGame =murderMuppets[0]) {
-//     gonzo.style.display = 'block';
-//   }else if (currentGame = murderMuppets[1]) {
-//     kermit.style.display = 'block'
-//   }else if ( currentGame = mderMuppets[2]){
-//     fozzie.style.display = 'block'
-//   }
-// }
-
 function loseState(loseCounter) {
  if(loseCounter.length >= 7) {
-  console.log("you lose try again");
+  var gameLose = window.setTimeout(loseModalPopUp, 0);
   }
 }
 function newGame() {
   while (myBoard.hasChildNodes()){
     myBoard.removeChild(myBoard.lastChild)
   }
+  index++;
   winCounter = [];
   loseCounter = [];
-  index++;
   if(index >= 3) {
+     var gameWon = window.setTimeout(winModalPopUp, 0);
+      currentClue.style.display='none';
       gonzo.style.display = 'block';
       kermit.style.display = 'block';
       fozzie.style.display = 'block';
@@ -83,22 +83,34 @@ function newGame() {
   }
 }
 function introModal() {
-  storyModal.style.display = 'block'
+  storyModal.style.display = 'block';
+}
+function winModalPopUp() {
+  winModal.style.display = 'block';
+}
+function loseModalPopUp() {
+  loseModal.style.display = 'block';
+}
+function nextGamePopUp() {
+  nextGame.style.display = 'block'
 }
 storyModal.addEventListener("click", function(){
  storyModal.style.display = 'none'
 })
-
-submitBtn.addEventListener("click",function(e){
-  checkInput(input.value);
-  document.forms['form'].reset()
-  e.preventDefault();
+nextGame.addEventListener("click", function(){
+ newGame();
+ nextGame.style.display = 'none'
 })
 startBtn.addEventListener("click",function(e) {
   e.preventDefault();
-  var timer = window.setTimeout(introModal, 1000);
+  var intro = window.setTimeout(introModal, 1000);
   console.log("this is working");
   createBoard(index);
+})
+clueBtnOne.addEventListener("click", function(e){
+  e.preventDefault();
+  currentClue.style.display='block';
+  // cluesDiv.style.display = 'block';
 })
 formSub.addEventListener("keydown",function(e) {
   if(e.keycode == 13 || e.which == 13) {
@@ -106,4 +118,7 @@ formSub.addEventListener("keydown",function(e) {
     checkInput(input.value);
     document.forms['form'].reset()
     }
+})
+document.addEventListener("keypress", function(){
+    wrongX.style.display = 'none'
 })

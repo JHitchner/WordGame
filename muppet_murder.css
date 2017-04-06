@@ -6,34 +6,95 @@
   left: 150px;
   top: 20px;
   display:none;
+  z-index: 0;
 }
 #label{
   position: absolute;
-  top: 20px;
-  left: 50px;
+  top: 18px;
+  left: 20px;
   padding: 10px;
   height: 50px;
   width: 300px;
   display:none;
+  color: red;
+  font-size: 20px;
+}
+#nextGame{
+  position: absolute;
+  display: none;
+  top: 300px;
+  width: 300px;
+  left: 740px;
+  text-align: center;
+  font-size: 30px;
+  color: green;
+  padding: 10px;
+  padding-top:30px;
+  height: 100px;
+  background-color: white;
+  border: 5px solid red;
+  border-style: groove;
+  z-index: 3;
+}
+#winModal{
+  position: absolute;
+  display: none;
+  top: 350px;
+  width: 300px;
+  left: 720px;
+  padding: 10px;
+  height: 100px;
+  background-color: white;
+  border: 5px solid red;
+  border-style: groove;
+  border-radius: 15px;
+  z-index: 2;
+}
+#insideWinModal{
+  text-align: center;
+  padding: 10px;
+  font-size: 20px;
+}
+#loseModal{
+  position: absolute;
+  display: none;
+  top: 350px;
+  width: 300px;
+  left: 730px;
+  padding: 10px;
+  height: 100px;
+  background-color: white;
+  border: 5px solid red;
+  border-style: groove;
+  border-radius: 15px;
+  z-index: 2;
+}
+#insideLoseModal{
+  text-align: center;
+  padding: 10px;
+  font-size: 20px;
 }
 #story{
   position: absolute;
-  height: 200px;
+  height: 300px;
   width: 400px;
   border: 20px solid red;
   border-style: groove;
   border-radius: 20px;
   display: none;
   background-color: white;
-  left: 700px;
-  top: 200px;
+  left: 690px;
+  top: 350px;
   z-index: 2;
 }
 #insideStory{
   text-align: center;
   padding: 30px;
+  font-size: 20px;
 }
-#clicktoExit{
+.clicktoExit{
+  position: relative;
+  font-size: 12px;
   text-align: center;
   padding: 30px;
 }
@@ -47,10 +108,11 @@
   border: 5px solid red;
   border-radius: 10px;
   float: left;
-  top: 300px;
-  left: 700px;
+  top: 350px;
+  left: 680px;
   text-align: center;
   font-size: 20px;
+  font-family: 'Nosifer', cursive;
 }
 #gameTitle{
   font-family: 'Nosifer', cursive;
@@ -59,7 +121,7 @@
   color:#F33107;
   position:relative;
   top: 50px;
-  font-size: 40px;
+  font-size: 50px;
   text-align: center;
 }
 body{
@@ -70,7 +132,8 @@ body{
   display:block;
   height: 400px;
   width: 400px;
-  left: 700px;
+  left: 720px;
+  top: 200px;
 }
 #submit{
   position: relative;
@@ -78,14 +141,19 @@ body{
   left: -10px;
   display:none;
 }
+#clueContainer{
+  position:relative;
+  top: -550px;
+  left:-30px;
+}
 #start{
   position: absolute;
   height: 100px;
   width: 150px;
   background-color:#F33107;
   font-size: 15px;
-  top: 500px;
-  left: 800px;
+  top: 600px;
+  left: 850px;
   font-family: 'Nosifer', cursive;
   border: 0px;
   border-radius: 12px;
@@ -94,6 +162,7 @@ body{
   backface-visibility: hidden;
   transition-duration: 0.3s;
   transition-property: transform;
+  z-index: 1;
 }
 #start:hover,
 #start:focus,
@@ -102,33 +171,73 @@ body{
 }
 .images{
   position: relative;
-  left: 200px;
-  
+  left: 500px;
+  top: 0px;
+}
+.clues{
+  position: absolute;
+  display: none;
+  left: 740px;
+  top: 650px;
+  background-color: white;
+  border: 2px solid red;
+  border-style:groove;
+  width: 350px;
+  height:30px;
+  text-align: center;
+  padding: 5px;
+  padding-top: 20px;
 }
 #one{
-  height: 100px;
-  width: 50px;
+  height: 400px;
+  width: 400px;
   position: relative;
-  left: 100px;
-  top: -200px;
-  /*display: none;*/
-  border: 5px solid red;
+  left: -250px;
+  top: 15px;
+  margin: 20px;
+  display: none;
+  float:left
 }
 #two{
-  height: 100px;
-  width: 50px;
+  height: 400px;
+  width: 400px;
   position: relative;
-  left: 100px;
-  top: -200px;
-  /*display: none;*/
-  border: 5px solid red;
+  left: -250px;
+  top: 0px;
+  margin: 20px;
+  display: none;
+  float: left;
 }
 #three{
-  height: 100px;
-  width: 50px;
+  height: 400px;
+  width: 400px;
   position: relative;
-  left: 100px;
-  top: -200px;
-  /*display: none;*/
-  border: 5px solid red;
+  left: -250px;
+  top:20px;
+  margin: 20px;
+  display: none;
+  float:left;
+}
+#deadAnimal{
+  position: absolute;
+  left:300px;
+  top:300px;
+  height: 400px;
+  width:400px;
+}
+#clueBtn{
+  position: absolute;
+  left: 890px;
+  top: 620px;
+}
+#wrongX{
+  position: absolute;
+  color:red;
+  padding: 20px;
+  height:30px;
+  width:150px;
+  top: 450px;
+  left: 830px;
+  display:none;
+
 }

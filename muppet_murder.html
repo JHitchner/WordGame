@@ -11,28 +11,41 @@
     <p id="gameTitle"  class="animated flash">Welcome to Muppet Murder Mystery</p>
     <div id="boardSize">
     </div>
-    <div class="winModal">
+    <div id="winModal" class="animated fadeIn">
       <p id="insideWinModal">You have solved the Muppet Murder Mystery</p>
     </div>
-    <div class="loseModal">
+    <div id="loseModal" class="animated fadeIn">
       <p id="insideLoseModal">You have failed the Muppet Murder Mystery. Please try again.</p>
+    </div>
+    <div id="nextGame" class="animated fadeIn">
+      Good Job!
+      <p class="clicktoExit">Click for next game.</p>
     </div>
     <div id="story" class="animated fadeIn">
       <p id="insideStory">A beloved Muppet has been murdered and it's up to you to find the culprit. Review the clues and solve this Muppet Murder Mystery!</p>
-      <p id="clicktoExit">Click to exit.</p>
+      <p class="clicktoExit">Click to exit.</p>
     </div>
     <form id="form" action="index.html"  method="post">
       <label id="label">Enter a letter</label>
       <input id="playerInput" type="text" name="letterInput" required pattern[a-z] maxlength="1">
       <button  id="submit"type="button">Submit</button>
     </form>
+    <div id="clueContainer">
+    <button id="clueBtn"type="button">Clue</button>
+    <p class="clues">He loves his chicken Camille... but loves killing more.</p>
+    <p class="clues"> It's not easy being green..unless he's killing.</p>
+    <p class="clues">He's quite the comdeian...when he isn't killing.</p>
+  </div>
     <button id="start"type="button">Start Game</button>
     <div class="images">
-    <img id="one"src="gonzo-png.png" class="animated fadeIn"alt="">
-    <img id="two" class="animated fadeIn"src="kermit-the-frog.png" alt="">
-    <img id="three" class="animated fadeIn"src="Fozzie-Bear.png" alt="">
+    <img id="one"src="gonzo.png" class="animated fadeIn"alt="">
+    <img id="two" class="animated fadeIn"src="kermit.png" alt="">
+    <img id="three" class="animated fadeIn"src="fozzie.png" alt="">
   </div>
-    <p id="wrong_letters"></p>
+  <img id="deadAnimal" class="animated slideInLeft"src="deadAnimal.png" alt="">
+    <p id="wrongX" class="animated jello">
+      Wrong, try again.
+    </p>
   <script src="muppet_murder.js"></script>
   </body>
 </html>
