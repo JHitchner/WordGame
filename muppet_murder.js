@@ -1,42 +1,40 @@
- // Left to do:If letter is not present turn letter chosen red and inner.HTML to bottom left of screen.
+
 var murderMuppets =['gonzo','kermit','fozzie'];
 var index= 0;
 var currentGame =murderMuppets[index];
-var label =document.getElementById('label')
+var label =document.getElementById('label');
 var myBoard = document.getElementById('boardSize');
-// var body =document.getElementsByTagName('body');
-var gonzo =document.getElementById('one')
-var kermit =document.getElementById('two')
-var fozzie =document.getElementById('three')
+var imageContainer = document.getElementById('images');
+var gonzo =document.getElementById('one');
+var kermit =document.getElementById('two');
+var fozzie =document.getElementById('three');
 var formSub =document.getElementById('form');
 var input =document.getElementById('playerInput');
-var wrongX =document.getElementById('wrongX')
-// var submitBtn =document.getElementById('submit');
+var wrongX =document.getElementById('wrongX');
 var clueBtnOne =document.getElementById('clueBtn');
 var clues =document.querySelectorAll('.clues');
 var cluesDiv =document.getElementById('cluesDiv');
 var startBtn =document.getElementById('start');
-var storyModal =document.getElementById('story')
-var winModal =document.getElementById('winModal')
-var loseModal =document.getElementById('loseModal')
-var nextGame =document.getElementById('nextGame')
+var storyModal =document.getElementById('story');
+var winModal =document.getElementById('winModal');
+var loseModal =document.getElementById('loseModal');
+var nextGame =document.getElementById('nextGame');
 var winCounter =[];
-var loseCounter =[]
+var loseCounter =[];
 var currentClue = clues[index];
 
 
 function createBoard(word) {
   currentGame = murderMuppets[word];
-  currentClue = clues[word]
+  currentClue = clues[word];
   for( var i = 0; i < currentGame.length; i++) {
     boardSize = document.createElement('div');
     boardSize.className = 'board';
     myBoard.appendChild(boardSize);
-    startBtn.style.visibility = 'hidden'
-    input.style.display = 'block'
-    label.style.display = 'block'
+    startBtn.style.visibility = 'hidden';
+    input.style.display = 'block';
+    label.style.display = 'block';
   }
-  // cluesDiv.innerHTML = currentClue;
 }
   function checkInput(input) {
     for(var i = 0; i < currentGame.length; i++) {
@@ -48,8 +46,7 @@ function createBoard(word) {
     }
   if(currentGame.includes(input) == false) {
     console.log(input);
-    wrongX.style.display = 'block'
-    console.log("letter not found");
+    wrongX.style.display = 'block';
     loseCounter.push(1);
     loseState(loseCounter);
     }
@@ -57,18 +54,17 @@ function createBoard(word) {
 function winState(winCounter) {
   if(winCounter.length == currentGame.length){
     var gameNext = window.setTimeout(nextGamePopUp, 500);
-    console.log("You have solved the mystery!");
   }
 }
 function loseState(loseCounter) {
  if(loseCounter.length >= 7) {
-  var gameLose = window.setTimeout(loseModalPopUp, 0);
+   var gameLose = window.setTimeout(loseModalPopUp, 0);
   }
 }
 function newGame() {
   while (myBoard.hasChildNodes()){
-    myBoard.removeChild(myBoard.lastChild)
-  }
+    myBoard.removeChild(myBoard.lastChild);
+  };
   index++;
   winCounter = [];
   loseCounter = [];
@@ -78,6 +74,7 @@ function newGame() {
       gonzo.style.display = 'block';
       kermit.style.display = 'block';
       fozzie.style.display = 'block';
+      imageContainer.style.display = 'block';
   }else if (index < 3) {
     createBoard(index);
   }
@@ -92,14 +89,15 @@ function loseModalPopUp() {
   loseModal.style.display = 'block';
 }
 function nextGamePopUp() {
-  nextGame.style.display = 'block'
+  nextGame.style.display = 'block';
 }
 storyModal.addEventListener("click", function(){
- storyModal.style.display = 'none'
+ storyModal.style.display = 'none';
 })
 nextGame.addEventListener("click", function(){
  newGame();
- nextGame.style.display = 'none'
+ nextGame.style.display = 'none';
+
 })
 startBtn.addEventListener("click",function(e) {
   e.preventDefault();
@@ -110,15 +108,14 @@ startBtn.addEventListener("click",function(e) {
 clueBtnOne.addEventListener("click", function(e){
   e.preventDefault();
   currentClue.style.display='block';
-  // cluesDiv.style.display = 'block';
 })
 formSub.addEventListener("keydown",function(e) {
   if(e.keycode == 13 || e.which == 13) {
     e.preventDefault();
     checkInput(input.value);
-    document.forms['form'].reset()
+    document.forms['form'].reset();
     }
 })
 document.addEventListener("keypress", function(){
-    wrongX.style.display = 'none'
+    wrongX.style.display = 'none';
 })

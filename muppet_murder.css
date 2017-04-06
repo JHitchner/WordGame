@@ -39,7 +39,7 @@
 #winModal{
   position: absolute;
   display: none;
-  top: 350px;
+  top: 300px;
   width: 300px;
   left: 720px;
   padding: 10px;
@@ -48,7 +48,7 @@
   border: 5px solid red;
   border-style: groove;
   border-radius: 15px;
-  z-index: 2;
+  z-index: 3;
 }
 #insideWinModal{
   text-align: center;
@@ -169,10 +169,15 @@ body{
 #start:active {
     transform: scale(1.1);
 }
-.images{
+#images{
   position: relative;
-  left: 500px;
-  top: 0px;
+  left: 200px;
+  top: -200px;
+  background-color: red;
+  height: 500px;
+  width: 1400px;
+  z-index: 2;
+  display: none;
 }
 .clues{
   position: absolute;
@@ -189,34 +194,36 @@ body{
   padding-top: 20px;
 }
 #one{
-  height: 400px;
-  width: 400px;
+  height: 500px;
+  width: 500px;
   position: relative;
-  left: -250px;
-  top: 15px;
-  margin: 20px;
-  display: none;
-  float:left
-}
-#two{
-  height: 400px;
-  width: 400px;
-  position: relative;
-  left: -250px;
-  top: 0px;
-  margin: 20px;
-  display: none;
-  float: left;
-}
-#three{
-  height: 400px;
-  width: 400px;
-  position: relative;
-  left: -250px;
-  top:20px;
-  margin: 20px;
+  left: -100px;
+  top: 25px;
+  margin: 10px;
   display: none;
   float:left;
+  z-index: 2;
+}
+#two{
+  height: 500px;
+  width: 500px;
+  position: relative;
+  left: -50px;
+  top: 0px;
+  margin: 10px;
+  display: none;
+  float: left;
+  z-index: 2;
+}
+#three{
+  height: 500px;
+  width: 500px;
+  position: relative;
+  left: 1000px;
+  top:-450px;
+  margin: 10px;
+  z-index: 2;
+  display: none;
 }
 #deadAnimal{
   position: absolute;
@@ -239,5 +246,4 @@ body{
   top: 450px;
   left: 830px;
   display:none;
-
 }
