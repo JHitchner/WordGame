@@ -22,9 +22,9 @@
 #nextGame{
   position: absolute;
   display: none;
-  top: 300px;
+  top: 400px;
   width: 300px;
-  left: 740px;
+  left: 725px;
   text-align: center;
   font-size: 30px;
   color: green;
@@ -43,7 +43,7 @@
   width: 300px;
   left: 720px;
   padding: 10px;
-  height: 100px;
+  height: 200px;
   background-color: white;
   border: 5px solid red;
   border-style: groove;
@@ -53,7 +53,7 @@
 #insideWinModal{
   text-align: center;
   padding: 10px;
-  font-size: 20px;
+  font-size: 30px;
 }
 #loseModal{
   position: absolute;
@@ -94,9 +94,9 @@
 }
 .clicktoExit{
   position: relative;
-  font-size: 12px;
+  font-size: 20px;
   text-align: center;
-  padding: 30px;
+  padding: 10px;
 }
 .board{
   position: relative;
@@ -132,13 +132,13 @@ body{
   display:block;
   height: 400px;
   width: 400px;
-  left: 720px;
+  left: 700px;
   top: 200px;
 }
 #submit{
-  position: relative;
-  top: 60px;
-  left: -10px;
+  position: absolute;
+  top: 120px;
+  left: 150px;
   display:none;
 }
 #clueContainer{
@@ -244,6 +244,6 @@ body{
   height:30px;
   width:150px;
   top: 450px;
-  left: 830px;
+  left: 800px;
   display:none;
 }
